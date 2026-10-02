@@ -1,13 +1,12 @@
 const AUDIUS_API = 'https://api.audius.co/v1';
 
 const AudiusModule = {
-    id: 'audius',
+    id: 'audius-uzu',
     name: 'Audius',
     version: '1.0.0',
+    labels: ['STREAMING', 'FREE'],
 
-    labels: ['FREE', 'STREAMING'],
-
-    async searchTracks(query, limit = 20) {
+    searchTracks: async (query, limit = 20) => {
         const response = await fetch(
             `${AUDIUS_API}/tracks/search?query=${encodeURIComponent(query)}&limit=${limit}`
         );
@@ -16,20 +15,14 @@ const AudiusModule = {
             throw new Error(`Audius search failed: ${response.status}`);
         }
 
-        const json = await response.json();
+        const data = await response.json();
 
-        const tracks = (json.data || []).map(track => ({
-            id: track.id,
+        const tracks = (data.data || []).map(track => ({
+            id: String(track.id),
             title: track.title || 'Unknown Title',
-
             artist: track.user?.name || 'Unknown Artist',
-
-            album: track.release_date
-                ? 'Audius'
-                : 'Unknown Album',
-
-            duration: track.duration || 0,
-
+            album: 'Audius',
+            duration: Number(track.duration) || 0,
             albumCover:
                 track.artwork?.['1000x1000'] ||
                 track.artwork?.['480x480'] ||
@@ -43,12 +36,9 @@ const AudiusModule = {
         };
     },
 
-    async getTrackStreamUrl(id, quality = 'HIGH') {
+    getTrackStreamUrl: async (id, quality) => {
         const response = await fetch(
-            `${AUDIUS_API}/tracks/${encodeURIComponent(id)}/stream`,
-            {
-                redirect: 'follow'
-            }
+            `${AUDIUS_API}/tracks/${encodeURIComponent(id)}/stream`
         );
 
         if (!response.ok) {
@@ -57,12 +47,9 @@ const AudiusModule = {
 
         return {
             streamUrl: response.url,
-
             track: {
-                id,
-                audioQuality: quality === 'LOSSLESS'
-                    ? 'HIGH'
-                    : quality
+                id: String(id),
+                audioQuality: 'HIGH'
             }
         };
     }
