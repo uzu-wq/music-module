@@ -1,0 +1,19 @@
+{
+  "id": "audius-uzu",
+  "name": "Audius",
+  "pkg": "com.8spine.module.audius.uzu",
+  "file": "audius-uzu.8spine",
+  "download": "https://raw.githubusercontent.com/uzu-wq/music-module/main/audius-uzu.8spine",
+  "version": "v1.0.0",
+  "code": 100,
+  "type": "MODULE",
+  "author": "uzu-wq",
+  "description": "Free Audius music streaming module",
+  "tags": ["FREE", "STREAMING"],
+  "featured": false,
+  "trusted": false,
+  "nsfw": false,
+  "size": 0,
+  "lang": "all",
+  "folder": "modules"
+}
