@@ -5,7 +5,7 @@
       "name": "Audius",
       "version": "1.0.0",
       "description": "Free Audius music streaming module",
-      "url": "https://raw.githubusercontent.com/uzu-wq/music-module/main/audius.json",
+      "url": "https://raw.githubusercontent.com/uzu-wq/music-module/main/module.js",
       "labels": ["FREE", "STREAMING"]
     }
   ]
