@@ -1,12 +1,30 @@
 {
-  "category:streaming": [
+  "id": "audius-uzu",
+  "name": "Audius",
+  "pkg": "com.8spine.module.audius.uzu",
+  "file": "audius-uzu.8spine",
+  "download": "https://raw.githubusercontent.com/uzu-wq/music-module/main/module.js",
+  "version": "v1.0.0",
+  "code": 100,
+  "type": "MODULE",
+  "author": "uzu-wq",
+  "description": "Audius music streaming module",
+  "tags": [
+    "FREE",
+    "STREAMING"
+  ],
+  "featured": false,
+  "trusted": false,
+  "nsfw": false,
+  "size": 0,
+  "lang": "all",
+  "folder": "modules",
+  "sources": [
     {
-      "id": "audius",
       "name": "Audius",
-      "version": "1.0.0",
-      "description": "Free music streaming through Audius",
-      "url": "https://raw.githubusercontent.com/uzu-wq/music-module/main/module.js",
-      "labels": ["FREE", "STREAMING"]
+      "lang": "all",
+      "id": "audius-uzu",
+      "baseUrl": "https://raw.githubusercontent.com/uzu-wq/music-module/main/"
     }
   ]
 }
